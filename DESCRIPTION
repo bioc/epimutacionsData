@@ -1,0 +1,24 @@
+Package: epimutacionsData
+Title: Data for epimutacions package
+Version: 0.9.3
+Authors@R: 
+    c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "nla94@newcastle.ac.uk"),
+      person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
+      person("Carlos", "Ruiz-Arenas", ,"carlos.ruiza@upf.edu", role = "aut"),
+      person("Carles", "Hernandez-Ferrer", ,"carles.hernandez@cnag.crg.eu", role = "aut"))
+Description: Collection of DNA methylation data
+License: MIT + file LICENSE
+biocViews: 
+  GEO,
+  ExperimentHub,
+  Tissue
+URL: https://github.com/LeireAbarrategui/epimutacionsData
+VignetteBuilder: knitr
+Encoding: UTF-8
+Depends: 
+  Biobase, 
+  ExperimentHubData,
+  ExperimentHub,
+  utils
+NeedsCompilation: no
+RoxygenNote: 7.1.1
