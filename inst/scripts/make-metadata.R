@@ -1,5 +1,7 @@
 meta <- data.frame(
-  Title = "DNA methylation profiles from GSE127824 study",
+  Title = c("DNA methylation profiles from GSE104812 study",
+            "DNA methylation profiles from GSE127824 study", 
+            "Candidate epimutations in Illumina 450k array"),
   Description = paste0("DNA methylation data from study GSE127824 containing 22 control samples",
                        "obtained from cord blood of healthy children born via cesarian",
                        "represented as RGChannelSet"),
@@ -17,8 +19,8 @@ meta <- data.frame(
   RDataPath = "epimutacionsData/reference_panel.rda",
   DispatchClass = "Rda",
   ResourceName = "reference_panel.rda",
-  Tags = c("DNA methylation", "epimutations", "methylation profiles")
-)
+  Tags = "",
+  Notes = "")
 
 
 write.csv(meta, file="inst/extdata/metadata.csv", row.names=FALSE)
