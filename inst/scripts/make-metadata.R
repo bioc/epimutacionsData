@@ -1,23 +1,17 @@
 meta <- data.frame(
-  Title = c("DNA methylation profiles from GSE104812 and GSE97362 cohorts",
-            "DNA methylation profiles from GSE127824 study", 
-            "Candidate epimutations in Illumina 450k array"),
-  Description = c(paste0("DNA methylation signatures, 48 control samples from 
-                         GSE104812 and  3 case samples GSE97362 cohorts",
-                         "represented as GenomicRatioSet"),
-                  paste0("DNA methylation data from study GSE127824 containing 22 control samples",
-                       "obtained from cord blood of healthy children born via cesarian",
-                       "represented as RGChannelSet"),
-                  paste0("Candidate epimutations in Illumina 450k array",
-                         "represented as GRanges class object")),
-                  
-  
+  Title = c("Control and case samples",
+            "Reference panel", 
+            "Candidate epimutations"),
+  Description = c(paste0("51 DNA methylation profiling of whole blood samples, 48 controls from 
+                         GSE104812 cohort  and 3 cases from GSE97362"),
+                  paste0("22 DNA methylation control samples from GSE127824"),
+                  paste0("Candidate epimutations in Illumina 450k array")),
   BiocVersion = c(rep("3.13", 3)),
   Genome = c(rep("hg19", 3)),
-  SourceType = c(rep("RDA", 3)) ,
-  SourceUrl = c("https://github.com/isglobal-brge/epimutacions/tree/master/data",
+  SourceType = c(rep("RDA", 3)),
+  SourceUrl = c("https://drive.google.com/drive/folders/1nnaDXPDkSR_LOlgZ_aDldk0UBG8EJ--p?usp=sharing",
                 "https://drive.google.com/drive/folders/1nnaDXPDkSR_LOlgZ_aDldk0UBG8EJ--p?usp=sharing",
-                "https://github.com/isglobal-brge/epimutacions/tree/master/data"),
+                "https://drive.google.com/drive/folders/1nnaDXPDkSR_LOlgZ_aDldk0UBG8EJ--p?usp=sharing"),
   SourceVersion = c(rep("July 2021", 3)),
   Species = "Homo sapiens",
   TaxonomyId = 9606,
