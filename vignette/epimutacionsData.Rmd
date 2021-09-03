@@ -17,7 +17,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview
 
-The `epimutacionsData` package is a repository of  datasets for the `epimutacions` package. It includes 2 datasets to use as an example: (1) Reference panel and (2) case and control samples. Also, a dataset specifying all the candidate epimutations is included. 
+The `epimutacionsData` package is a repository of  datasets for the `epimutacions` package. It includes 2 datasets to use as an example: (1) Reference panel and (2) case and control samples. We also included a dataset specifying the candidate regions in  Illumina 450K array to be epimutations. 
+
+# Installation
+
+The following code explains how to access to the data: 
+
+
+```{r message = FALSE}
+library(ExperimentHub)
+eh <- ExperimentHub()
+query(eh, c("epimutacionsData"))
+```
+
 
 ## Candidate epimutations
 
@@ -25,16 +37,29 @@ In Illumina 450K array [@reproducibilityinfinium], probes are unequally distribu
 
 To define the candidate epimutations, we relied on the clustering from bumphunter [@jaffe2012bump]. We defined a primary dataset with all the CpGs from the Illumina 450K array. Then, we run bumphunter and selected those regions with at least 3 CpGs. As a result, we found 40408 candidate epimutations which are available in the `candRegsGR` dataset.
 
+```{r message = FALSE, eval = FALSE}
+candRegsGR <- eh[["EH6692"]]
+```
+
 ## Example datasets
 
 ### Reference panel
 
 The package includes an `RGChannelSet` class reference panel (`reference_panel`) which contains 22 whole cord blood samples from healthy children born via caesarian from the GSE127824 cohort [@gervin2019systematic].
 
+The reference panel can be found in `EH6691` record of the  `eh` object: 
+
+```{r message = FALSE}
+reference_panel <- eh[["EH6691"]]
+```
+
 ### Control and case samples
 
 The `methy` dataset includes 51 DNA methylation profiling of whole blood samples. 48 controls from GSE104812 [@shi2018dna] cohort and 3 cases from GSE97362 [@butcher2017charge]. it is a `GenomicRatioSet` class object. 
 
+```{r message = FALSE}
+methy <- eh[["EH6690"]]
+```
 
 # sessionInfo()
 

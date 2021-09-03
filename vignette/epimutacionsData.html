@@ -11,7 +11,7 @@
 
 <meta name="author" content="Leire Abarrategui" />
 
-<meta name="date" content="2021-07-13" />
+<meta name="date" content="2021-09-03" />
 
 <title>epimutacionsData: a data repostory for epimutacions package</title>
 
@@ -194,49 +194,78 @@ function toggle_visibility(id1) {
 
 <h1 class="title toc-ignore">epimutacionsData: a data repostory for epimutacions package</h1>
 <p class="author-name">Leire Abarrategui</p>
-<h4 class="date">13 July 2021</h4>
+<h4 class="date">3 September 2021</h4>
 
 </div>
 
 <h1>Contents</h1>
 <div id="TOC">
 <ul>
-<li><a href="#overview"><span class="toc-section-number">1</span> Overview</a>
+<li><a href="#overview"><span class="toc-section-number">1</span> Overview</a></li>
+<li><a href="#installation"><span class="toc-section-number">2</span> Installation</a>
 <ul>
-<li><a href="#candidate-epimutations"><span class="toc-section-number">1.1</span> Candidate epimutations</a></li>
-<li><a href="#example-datasets"><span class="toc-section-number">1.2</span> Example datasets</a>
+<li><a href="#candidate-epimutations"><span class="toc-section-number">2.1</span> Candidate epimutations</a></li>
+<li><a href="#example-datasets"><span class="toc-section-number">2.2</span> Example datasets</a>
 <ul>
-<li><a href="#reference-panel"><span class="toc-section-number">1.2.1</span> Reference panel</a></li>
-<li><a href="#control-and-case-samples"><span class="toc-section-number">1.2.2</span> Control and case samples</a></li>
+<li><a href="#reference-panel"><span class="toc-section-number">2.2.1</span> Reference panel</a></li>
+<li><a href="#control-and-case-samples"><span class="toc-section-number">2.2.2</span> Control and case samples</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#sessioninfo"><span class="toc-section-number">2</span> sessionInfo()</a></li>
+<li><a href="#sessioninfo"><span class="toc-section-number">3</span> sessionInfo()</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
 
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Overview</h1>
-<p>The <code>epimutacionsData</code> package is a repository of datasets for the <code>epimutacions</code> package. It includes 2 datasets to use as an example: (1) Reference panel and (2) case and control samples. Also, a dataset specifying all the candidate epimutations is included.</p>
-<div id="candidate-epimutations" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Candidate epimutations</h2>
+<p>The <code>epimutacionsData</code> package is a repository of datasets for the <code>epimutacions</code> package. It includes 2 datasets to use as an example: (1) Reference panel and (2) case and control samples. We also included a dataset specifying the candidate regions in Illumina 450K array to be epimutations.</p>
+</div>
+<div id="installation" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Installation</h1>
+<p>The following code explains how to access to the data:</p>
+<pre class="r"><code>library(ExperimentHub)
+eh &lt;- ExperimentHub()
+query(eh, c(&quot;epimutacionsData&quot;))</code></pre>
+<pre><code>## ExperimentHub with 3 records
+## # snapshotDate(): 2021-08-27
+## # $dataprovider: GEO, Illumina 450k array
+## # $species: Homo sapiens
+## # $rdataclass: RGChannelSet, GenomicRatioSet, GRanges
+## # additional mcols(): taxonomyid, genome, description,
+## #   coordinate_1_based, maintainer, rdatadateadded, preparerclass, tags,
+## #   rdatapath, sourceurl, sourcetype 
+## # retrieve records with, e.g., &#39;object[[&quot;EH6690&quot;]]&#39; 
+## 
+##            title                   
+##   EH6690 | Control and case samples
+##   EH6691 | Reference panel         
+##   EH6692 | Candidate epimutations</code></pre>
+<div id="candidate-epimutations" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Candidate epimutations</h2>
 <p>In Illumina 450K array <span class="citation">(Reproducibility 2012)</span>, probes are unequally distributed along the genome, limiting the number of regions that can fulfil the requirements to be considered an epimutation. So, we have computed a dataset containing the regions that are candidates to become an epimutation.</p>
 <p>To define the candidate epimutations, we relied on the clustering from bumphunter <span class="citation">(Jaffe et al. 2012)</span>. We defined a primary dataset with all the CpGs from the Illumina 450K array. Then, we run bumphunter and selected those regions with at least 3 CpGs. As a result, we found 40408 candidate epimutations which are available in the <code>candRegsGR</code> dataset.</p>
+<pre class="r"><code>candRegsGR &lt;- eh[[&quot;EH6692&quot;]]</code></pre>
 </div>
-<div id="example-datasets" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Example datasets</h2>
-<div id="reference-panel" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Reference panel</h3>
+<div id="example-datasets" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Example datasets</h2>
+<div id="reference-panel" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Reference panel</h3>
 <p>The package includes an <code>RGChannelSet</code> class reference panel (<code>reference_panel</code>) which contains 22 whole cord blood samples from healthy children born via caesarian from the GSE127824 cohort <span class="citation">(Gervin et al. 2019)</span>.</p>
+<p>The reference panel can be found in <code>EH6691</code> record of the <code>eh</code> object:</p>
+<pre class="r"><code>reference_panel &lt;- eh[[&quot;EH6691&quot;]]</code></pre>
+<pre><code>## [1] Creating log directory C:/Users/nla94/Documents/.AnnotationHubData</code></pre>
+<pre><code>## Warning in dir.create(logDir): cannot create dir &#39;C:
+## \Users\nla94\Documents\.AnnotationHubData&#39;, reason &#39;Permission denied&#39;</code></pre>
 </div>
-<div id="control-and-case-samples" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Control and case samples</h3>
+<div id="control-and-case-samples" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Control and case samples</h3>
 <p>The <code>methy</code> dataset includes 51 DNA methylation profiling of whole blood samples. 48 controls from GSE104812 <span class="citation">(Shi et al. 2018)</span> cohort and 3 cases from GSE97362 <span class="citation">(Butcher et al. 2017)</span>. it is a <code>GenomicRatioSet</code> class object.</p>
+<pre class="r"><code>methy &lt;- eh[[&quot;EH6690&quot;]]</code></pre>
 </div>
 </div>
 </div>
-<div id="sessioninfo" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> sessionInfo()</h1>
+<div id="sessioninfo" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> sessionInfo()</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 4.1.0 (2021-05-18)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -252,19 +281,68 @@ function toggle_visibility(id1) {
 ## [5] LC_TIME=English_United Kingdom.1252    
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## [1] stats4    parallel  stats     graphics  grDevices utils     datasets 
+## [8] methods   base     
 ## 
 ## other attached packages:
-## [1] BiocStyle_2.20.2
+##  [1] epimutacionsData_0.9.3   ExperimentHubData_1.19.0 AnnotationHubData_1.23.0
+##  [4] futile.logger_1.4.3      GenomicRanges_1.44.0     GenomeInfoDb_1.29.3     
+##  [7] IRanges_2.26.0           S4Vectors_0.30.0         Biobase_2.52.0          
+## [10] ExperimentHub_2.0.0      AnnotationHub_3.1.4      BiocFileCache_2.0.0     
+## [13] dbplyr_2.1.1             BiocGenerics_0.38.0      BiocStyle_2.21.3        
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bookdown_0.22       digest_0.6.27       R6_2.5.0           
-##  [4] jsonlite_1.7.2      magrittr_2.0.1      evaluate_0.14      
-##  [7] stringi_1.6.2       rlang_0.4.11        jquerylib_0.1.4    
-## [10] bslib_0.2.5.1       rmarkdown_2.9       tools_4.1.0        
-## [13] stringr_1.4.0       xfun_0.24           yaml_2.2.1         
-## [16] compiler_4.1.0      BiocManager_1.30.16 htmltools_0.5.1.1  
-## [19] knitr_1.33          sass_0.4.0</code></pre>
+##   [1] rjson_0.2.20                  ellipsis_0.3.2               
+##   [3] XVector_0.32.0                getopt_1.20.3                
+##   [5] bit64_4.0.5                   interactiveDisplayBase_1.31.0
+##   [7] AnnotationDbi_1.55.1          fansi_0.5.0                  
+##   [9] xml2_1.3.2                    codetools_0.2-18             
+##  [11] cachem_1.0.5                  knitr_1.33                   
+##  [13] jsonlite_1.7.2                Rsamtools_2.8.0              
+##  [15] png_0.1-7                     graph_1.71.2                 
+##  [17] shiny_1.6.0                   BiocManager_1.30.16          
+##  [19] compiler_4.1.0                httr_1.4.2                   
+##  [21] assertthat_0.2.1              Matrix_1.3-4                 
+##  [23] fastmap_1.1.0                 later_1.2.0                  
+##  [25] formatR_1.11                  htmltools_0.5.1.1            
+##  [27] prettyunits_1.1.1             tools_4.1.0                  
+##  [29] glue_1.4.2                    GenomeInfoDbData_1.2.6       
+##  [31] dplyr_1.0.7                   rappdirs_0.3.3               
+##  [33] Rcpp_1.0.7                    jquerylib_0.1.4              
+##  [35] vctrs_0.3.8                   Biostrings_2.60.1            
+##  [37] rtracklayer_1.52.0            optparse_1.6.6               
+##  [39] xfun_0.24                     stringr_1.4.0                
+##  [41] mime_0.11                     lifecycle_1.0.0              
+##  [43] restfulr_0.0.13               XML_3.99-0.6                 
+##  [45] stringdist_0.9.6.3            zlibbioc_1.38.0              
+##  [47] hms_1.1.0                     promises_1.2.0.1             
+##  [49] MatrixGenerics_1.5.1          BiocCheck_1.29.10            
+##  [51] SummarizedExperiment_1.23.1   RBGL_1.69.0                  
+##  [53] lambda.r_1.2.4                yaml_2.2.1                   
+##  [55] curl_4.3.2                    memoise_2.0.0                
+##  [57] sass_0.4.0                    biomaRt_2.49.2               
+##  [59] stringi_1.6.2                 RSQLite_2.2.7                
+##  [61] BiocVersion_3.14.0            BiocIO_1.3.0                 
+##  [63] GenomicFeatures_1.45.0        filelock_1.0.2               
+##  [65] BiocParallel_1.26.1           rlang_0.4.11                 
+##  [67] pkgconfig_2.0.3               matrixStats_0.59.0           
+##  [69] bitops_1.0-7                  evaluate_0.14                
+##  [71] lattice_0.20-44               purrr_0.3.4                  
+##  [73] GenomicAlignments_1.28.0      bit_4.0.4                    
+##  [75] tidyselect_1.1.1              AnnotationForge_1.35.0       
+##  [77] magrittr_2.0.1                bookdown_0.22                
+##  [79] R6_2.5.0                      generics_0.1.0               
+##  [81] RUnit_0.4.32                  DelayedArray_0.18.0          
+##  [83] DBI_1.1.1                     pillar_1.6.1                 
+##  [85] withr_2.4.2                   biocViews_1.61.0             
+##  [87] KEGGREST_1.33.0               RCurl_1.98-1.3               
+##  [89] tibble_3.1.2                  crayon_1.4.1                 
+##  [91] futile.options_1.0.1          utf8_1.2.1                   
+##  [93] OrganismDbi_1.35.0            rmarkdown_2.9                
+##  [95] progress_1.2.2                grid_4.1.0                   
+##  [97] blob_1.2.2                    digest_0.6.27                
+##  [99] xtable_1.8-4                  httpuv_1.6.1                 
+## [101] bslib_0.2.5.1</code></pre>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
