@@ -1,12 +1,12 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 0.9.3
+Version: 0.99.0
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "nla94@newcastle.ac.uk"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
       person("Carlos", "Ruiz-Arenas", ,"carlos.ruiza@upf.edu", role = "aut"),
       person("Carles", "Hernandez-Ferrer", ,"carles.hernandez@cnag.crg.eu", role = "aut"))
-Description: Collection of DNA methylation data
+Description: Collection of DNA methylation data in ExperimentHub. The data is created to use in epimutacions Bioconductor's package. The data includes, reference panel, case-control datasets and IDAT files. 
 License: MIT + file LICENSE
 biocViews: 
   GEO,
@@ -19,6 +19,7 @@ Depends:
   Biobase, 
   ExperimentHubData,
   ExperimentHub,
-  utils
+  utils,
+  knitr
 NeedsCompilation: no
 RoxygenNote: 7.1.1
