@@ -61,6 +61,17 @@ The `methy` dataset includes 51 DNA methylation profiling of whole blood samples
 methy <- eh[["EH6690"]]
 ```
 
+## IDAT files 
+
+The IDAT files contain raw microarray intensities of 4 case samples from GSE131350 cohort. The files are located on the external data of `epimutacionsData` package: 
+
+```{r, message = FALSE, eval = FALSE}
+library(minfi)
+baseDir <- system.file("extdata", package = "epimutacionsData")
+targets <- read.metharray.sheet(baseDir)
+```
+
+
 # sessionInfo()
 
 ```{r sessionInfo}
