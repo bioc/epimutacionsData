@@ -9,13 +9,14 @@ Authors@R:
 Description: Collection of 3 datasets and 8 IDAT files. Control ( GEO: GSE104812) and (GEO: GSE97362) case samples, reference panel (GEO: GSE127824) and candidate epimutations regions in 450k methylation arrays. 
 License: MIT + file LICENSE
 biocViews: 
-  GEO,
+  ExperimentHub
+Imports:
   ExperimentHub,
-  Tissue, 
-  qpdf
+  ExperimentHubData
 Suggests: 
   rmarkdown,
-  BiocStyle
+  BiocStyle,
+  knitr
 URL: https://github.com/LeireAbarrategui/epimutacionsData
 VignetteBuilder: knitr
 Encoding: UTF-8
@@ -24,6 +25,5 @@ Depends:
   ExperimentHubData,
   ExperimentHub,
   utils,
-  knitr
 NeedsCompilation: no
 RoxygenNote: 7.1.1
