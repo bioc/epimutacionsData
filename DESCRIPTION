@@ -1,6 +1,6 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "nla94@newcastle.ac.uk"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
@@ -10,9 +10,6 @@ Description: Collection of 3 datasets and 8 IDAT files. Control ( GEO: GSE104812
 License: MIT + file LICENSE
 biocViews: 
   ExperimentHub
-Imports:
-  ExperimentHub,
-  ExperimentHubData
 Suggests: 
   rmarkdown,
   BiocStyle,
@@ -26,4 +23,4 @@ Depends:
   ExperimentHub,
   utils,
 NeedsCompilation: no
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
