@@ -1,6 +1,6 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 0.99.1
+Version: 0.99.0
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "nla94@newcastle.ac.uk"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
@@ -9,18 +9,20 @@ Authors@R:
 Description: Collection of 3 datasets and 8 IDAT files. Control ( GEO: GSE104812) and (GEO: GSE97362) case samples, reference panel (GEO: GSE127824) and candidate epimutations regions in 450k methylation arrays. 
 License: MIT + file LICENSE
 biocViews: 
+  ExperimentData, 
+  PackageTypeData, 
+  DNAMethylation,
   ExperimentHub
 Suggests: 
   rmarkdown,
   BiocStyle,
   knitr
-URL: https://github.com/LeireAbarrategui/epimutacionsData
 VignetteBuilder: knitr
 Encoding: UTF-8
-Depends: 
-  Biobase, 
-  ExperimentHubData,
+Imports: 
   ExperimentHub,
-  utils,
+  R.utils
+URL: https://github.com/LeireAbarrategui/epimutacionsData
+BugReports: https://github.com/LeireAbarrategui/epimutacionsData/issues
 NeedsCompilation: no
 RoxygenNote: 7.1.2
