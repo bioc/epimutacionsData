@@ -1,6 +1,6 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "nla94@newcastle.ac.uk"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
@@ -11,8 +11,7 @@ License: MIT + file LICENSE
 biocViews: 
   ExperimentData, 
   PackageTypeData, 
-  DNAMethylation,
-  ExperimentHub
+  DNAMethylation
 Suggests: 
   rmarkdown,
   BiocStyle,
