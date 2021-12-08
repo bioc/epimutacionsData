@@ -1,15 +1,21 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 0.99.2
+Version: 0.99.3
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "abarrategui.leire@gmail.com"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
       person("Carlos", "Ruiz-Arenas", ,"carlos.ruiza@upf.edu", role = "aut"),
       person("Carles", "Hernandez-Ferrer", ,"carles.hernandez@cnag.crg.eu", role = "aut"))
-Description: Collection of 3 datasets and 8 IDAT files. Control ( GEO: GSE104812) and (GEO: GSE97362) case samples, reference panel (GEO: GSE127824) and candidate epimutations regions in 450k methylation arrays. 
+Description: This package includes the data necessary to run functions and examples in epimutacions package. 
+             Collection of DNA methylation data. The package contains 2 datasets and 8 IDAT files from GEO.
+             Control ( GEO: GSE104812), (GEO: GSE97362) case samples  and reference panel (GEO: GSE127824). 
+             It also contains candidate regions to be epimutations in 450k methylation arrays.
 License: MIT + file LICENSE
 biocViews: 
-  ExperimentHub
+  ExperimentHub,
+  Homo_sapiens_Data,
+  MethylationArrayData,
+  MicroarrayData
 Suggests: 
   rmarkdown,
   BiocStyle,
