@@ -15,13 +15,22 @@ bibliography: refs.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Overview
+# Introduction
 
 The `epimutacionsData` package is a repository of  datasets for the
-`epimutacions` package. It includes 2 datasets to use as an example: 
-(1) Reference panel and (2) case and control samples. 
-We also included a dataset specifying the candidate regions in  
-Illumina 450K array to be epimutations. 
+`epimutacions` package. It includes 2 datasets to use as an example:
+
+* **Reference panel**: DNA methylation profiles of 
+24 whole cord blood samples from healthy 
+children born via caesarian (GEO: GSE127824)
+* **Case and control samples**: DNA methylation profiling of 
+whole blood samples in healthy children (GSE104812). 
+CHARGE and Kabuki syndromes whole blood samples
+DNA methylation profiles (GEO: GSE97362). 
+* **Candidate regions**: Regions in Illumina 450K array which 
+are candidate to be epimutations. 
+
+
 
 # Installation
 

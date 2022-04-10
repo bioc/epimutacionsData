@@ -1,15 +1,19 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 0.99.3
+Version: 0.99.5
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "abarrategui.leire@gmail.com"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
       person("Carlos", "Ruiz-Arenas", ,"carlos.ruiza@upf.edu", role = "aut"),
       person("Carles", "Hernandez-Ferrer", ,"carles.hernandez@cnag.crg.eu", role = "aut"))
-Description: This package includes the data necessary to run functions and examples in epimutacions package. 
-             Collection of DNA methylation data. The package contains 2 datasets and 8 IDAT files from GEO.
-             Control ( GEO: GSE104812), (GEO: GSE97362) case samples  and reference panel (GEO: GSE127824). 
-             It also contains candidate regions to be epimutations in 450k methylation arrays.
+Description: This package includes the data necessary to run functions 
+             and examples in epimutacions package. 
+             Collection of DNA methylation data. 
+             The package contains 2 datasets: 
+             (1) Control ( GEO: GSE104812), (GEO: GSE97362) case samples;  and  
+             (2) reference panel (GEO: GSE127824). 
+             It also contains candidate regions to 
+             be epimutations in 450k methylation arrays.
 License: MIT + file LICENSE
 biocViews: 
   ExperimentHub,
@@ -19,12 +23,12 @@ biocViews:
 Suggests: 
   rmarkdown,
   BiocStyle,
-  knitr
+  knitr,
+  ExperimentHub,
+  minfi
 VignetteBuilder: knitr
 Encoding: UTF-8
-Imports: 
-  ExperimentHub,
-  utils
+Depends: R (>= 4.2.0)
 URL: https://github.com/LeireAbarrategui/epimutacionsData
 BugReports: https://github.com/LeireAbarrategui/epimutacionsData/issues
 NeedsCompilation: no
