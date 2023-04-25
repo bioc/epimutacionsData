@@ -1,6 +1,6 @@
 Package: epimutacionsData
 Title: Data for epimutacions package
-Version: 1.3.0
+Version: 1.4.0
 Authors@R: 
     c(person("Leire","Abarrategui",role = c("aut", "cre"),email = "abarrategui.leire@gmail.com"),
       person("Juan R.", "Gonzalez", ,"juanr.gonzalez@isglobal.org", role = "aut"),
